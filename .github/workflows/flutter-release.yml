@@ -1,12 +1,12 @@
 name: Flutter CI/CD
 
 on:
-  
+
   # runs for push on master branch.
   push:
     branches:
     - master
-  
+
   # runs for PR on master branch.
   pull_request:
     branches:
@@ -15,7 +15,7 @@ on:
 jobs:
   build:
     name: Run Tests & Build Release
-  
+
     # Provision a ubuntu virtual machine
     runs-on: ubuntu-latest
     steps:
@@ -25,24 +25,24 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: '12.x'
-        
+
     # Setup the flutter environment.
     - uses: subosito/flutter-action@v1
       with:
         channel: 'stable'
-        
-    # Install flutter dependencies.  
+
+    # Install flutter dependencies.
     - run: flutter pub get
-    
+
     # Run tests.
     - run: flutter test
-    
-    # Split APK's for different artictures 
+
+    # Build & Split APK's for different artictures
     - run: flutter build apk --debug --split-per-abi
 
     # Upload apk to the artifacts.
     - name: Create a Release APK
-      
+
       uses: ncipollo/release-action@v1
       with:
         artifacts: "build/app/outputs/apk/debug/*.apk"
