@@ -1,16 +1,6 @@
 name: Flutter CI/CD
 
-on:
-  
-  # runs for push on master branch.
-  push:
-    branches:
-    - master
-  
-  # runs for PR on master branch.
-  pull_request:
-    branches:
-    - master
+on: [push, pull_request]
 
 jobs:
   build:
