@@ -1,16 +1,10 @@
-# HelloFlutter
+# Automate your Flutter Releases
 
-A new Flutter project.
+Use GitHub Actions to automate your Flutter app builds, testing & releases.
 
-## Getting Started
+How to integrate it into your app?
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Create a GitHub repo and upload Application folder into it.
+- Create a GitHub action for your repo & paste the contents of flutter-release.yml in .github/workflows/ from this repo.
+- Tag your releases (mandatory)
+- The builds will start on push/pull to master.
